@@ -1,0 +1,93 @@
+/* Ensure no scrollbars appear */
+body {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  height: 100vh; /* Full viewport height */
+  position: relative;
+}
+
+/* Heart animation */
+.heart {
+  position: absolute;
+  animation: floatHearts 10s infinite;
+  pointer-events: none;
+  font-size: 30px;
+}
+
+.heart::before {
+  content: "❤️";
+}
+
+/* Animation for floating hearts */
+@keyframes floatHearts {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(200px, -200px) scale(1.5);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translate(-200px, -400px) scale(1);
+    opacity: 0;
+  }
+}
+
+/* Heart random starting positions and timings */
+.heart:nth-child(1) {
+  top: 10%;
+  left: 5%;
+  animation-duration: 12s;
+  animation-delay: 2s;
+}
+
+.heart:nth-child(2) {
+  top: 15%;
+  right: 5%;
+  animation-duration: 14s;
+  animation-delay: 3s;
+}
+
+.heart:nth-child(3) {
+  bottom: 10%;
+  left: 20%;
+  animation-duration: 16s;
+  animation-delay: 4s;
+}
+
+.heart:nth-child(4) {
+  top: 20%;
+  left: 35%;
+  animation-duration: 18s;
+  animation-delay: 5s;
+}
+
+.heart:nth-child(5) {
+  top: 30%;
+  right: 10%;
+  animation-duration: 20s;
+  animation-delay: 6s;
+}
+
+.heart:nth-child(6) {
+  bottom: 20%;
+  left: 50%;
+  animation-duration: 22s;
+  animation-delay: 7s;
+}
+
+.heart:nth-child(7) {
+  top: 25%;
+  left: 60%;
+  animation-duration: 24s;
+  animation-delay: 8s;
+}
+
+.heart:nth-child(8) {
+  bottom: 30%;
+  right: 20%;
+  animation-duration: 26s;
+  animation-delay: 9s;
+}
