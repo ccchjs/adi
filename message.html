@@ -46,6 +46,33 @@
       font-size: 28px;
     }
 
+    /* Right Arrow Styles */
+    .next-arrow {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 24px;
+      color: #ffffff;
+      text-decoration: none;
+      padding: 10px;
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease;
+    }
+
+    .next-arrow:hover {
+      background-color: rgba(0, 0, 0, 0.7);
+      transform: scale(1.1);
+    }
+
+    .next-arrow::before {
+      content: "→";
+      font-size: 28px;
+    }
+
     /* Background with animated hearts */
     .heart {
       position: absolute;
@@ -143,6 +170,20 @@
     .show-more-btn:hover {
       background-color: #357ab7;
     }
+
+    /* Flip page animation */
+    .flip-page {
+      animation: flip 1s ease-in-out forwards;
+    }
+
+    @keyframes flip {
+      0% {
+        transform: rotateY(0deg);
+      }
+      100% {
+        transform: rotateY(180deg);
+      }
+    }
   </style>
 </head>
 <body>
@@ -154,6 +195,9 @@
     <p>Every moment with you is a treasure. You bring so much joy into my life, and I feel lucky to share this journey with you. I love you more than words can express, and I can't wait for all the beautiful memories we will create together. You are my adi forever. ❤️</p>
     <button class="show-more-btn" onclick="showMoreHearts()">Show More Hearts</button>
   </div>
+
+  <!-- Right Arrow -->
+  <a href="photo.html" class="next-arrow" id="next-arrow"></a>
 
   <!-- Heart elements to float in the background -->
   <div class="heart"></div>
@@ -192,6 +236,15 @@
         });
       }
     }
+
+    // Add flip page effect on next arrow click
+    document.querySelector('.next-arrow').addEventListener('click', function(event) {
+      event.preventDefault();
+      document.body.classList.add('flip-page');
+      setTimeout(function() {
+        window.location.href = 'photo.html';
+      }, 1000); // Wait for the flip effect to finish before navigating
+    });
   </script>
 </body>
 </html>
